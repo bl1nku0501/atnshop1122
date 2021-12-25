@@ -1,0 +1,81 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <title>Edit product</title>
+    </head>
+    <body>
+    {{!-- header --}}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">ATN Shop</a>
+            <button
+            class="navbar-toggler" type="button"data-toggle="collapse"data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav p-1">
+            <li class="nav-item text-light"><a class="nav-link" href="/">HOME</a></li>
+                <li class="nav-item"><a class="nav-link" href="/addproduct">Add Product</a></li>
+            </ul>
+            </div>     
+        </nav>
+
+
+        <div class="container">
+            <h1>Update Product</h1>
+        <form action="/update" method="post">
+        <input type="hidden" name="txtId" value="{{product._id}}">
+        <h5>Name</h5>
+        <div class="input-group mb-3">
+        <input type="text" name="txtName" value="{{product.name}}" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <h5>Price</h5>
+        <div class="input-group mb-3">
+        <input type="text" name="txtPrice" value="{{product.price}}" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <h5>Image Url</h5>
+        <div class="input-group mb-3">
+        <input type="text" name="txtPicURL" value="{{product.picURL}}" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <button type="submit" value="Update" class="btn btn-outline-primary" onclick="return confirm('Are your sure?')">Update</button>
+        </form>
+        </div>
+        <br><br>
+        
+        <h2 style="text-align: center; color: red;">Information of Product</h2><br>
+    <div>
+        <table class="table"border="5" cellspacing="2">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Picture</th>
+            </tr>
+            <tr border="4"> 
+                <td><strong>{{product._id}}</strong></td>
+                <td><strong>{{product.name}}</strong></td>
+                <td><strong>{{product.price}}$</strong></td>
+                <td><img src="{{product.picURL}}" width="200" height="200"></td>
+            </tr>
+        </table>
+    </div>
+    
+
+    {{!-- footer --}}
+    <div class="footer">
+        <footer class="container-fluid text-center">
+        <span class="footer-copyright">ATN Shop © Copyright 2021. All Rights Reserved.</span>
+    </footer>
+    </body>
+
+    </html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
